@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"E:\\task2\\Source\\task2\\task2.Build.cs",
+		"E:\\task2\\Source\\task2.Target.cs",
+		"E:\\task2\\Source\\task2Editor.Target.cs"
+	],
+	"EngineVersion": "4.26.2"
+}

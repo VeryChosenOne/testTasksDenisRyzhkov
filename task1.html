@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+
+		<title>Задание 1</title>
+
+		<style>
+		html {
+			font-family: sans-serif;
+		}
+		body {
+			width: 50%;
+			max-width: 800px;
+			min-width: 480px;
+			margin: 0 auto;
+		}
+		.lastResult {
+			color: white;
+			padding: 3px;
+		}
+		</style>
+	</head>
+
+	<body>
+	
+	<h1>Задание 1</h1>
+	
+	<div class="form">
+		<input type="text" id="inputField" class="inputField">
+		<input type="submit" value="convert" class="convertSubmit">
+	</div>
+	
+	<p class="result"></p>
+	
+	</body>
+
+	<script>
+		const inputField = document.querySelector('.inputField');
+		const convertSubmit = document.querySelector('.convertSubmit');
+		const result = document.querySelector('.result');
+		
+		/*	функция работает просто:
+			вся строка переводится в нижний регистр(js чувствителен к нему),
+			разделяет посимвольно на массив
+			затем каждый элемент массив проверяется в массиве двойников, 
+			если они к выходной строке добавляется ')', если нет - '(', 
+			но если буква попадется в первый раз,
+			она будет добавлена в массив двойников, 
+			а в выходную строку будет добавлена ')'
+		*/
+		function stringConvert() {
+			result.textContent = '';
+			let inputСhars = inputField.value.toLowerCase().split('');
+			let doubles = [];
+			
+			for (let i = 0; i < inputСhars.length; i++){
+				if (doubles.includes(inputСhars[i])){result.textContent += ')';}
+				else if (inputСhars.includes(inputСhars[i],i+1)){
+					doubles.push(inputСhars[i]);
+					result.textContent += ')';
+				}
+				else {result.textContent += '(';}
+			}
+		}
+		convertSubmit.addEventListener('click', stringConvert);
+	</script>
+
+</html>
